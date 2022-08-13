@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import Selection from "./components/Selection";
 
 function App() {
+  const sportsList = [
+    "esports",
+    "lawn tennis",
+    "hockey",
+    "table tennis",
+    "volleyball",
+    "cricket",
+    "badminton",
+    "football",
+    "basketball",
+    "dodgeball",
+    "carrom",
+    "chess",
+    "athletics",
+    "aquatics",
+    "weightlifting",
+    "squash",
+  ];
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Selection sportsList={sportsList} />
     </div>
   );
 }
