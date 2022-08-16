@@ -5,11 +5,11 @@ import {
   InputLabel,
   Select,
   MenuItem,
-  Menu,
 } from "@mui/material";
 import * as React from "react";
 import Cricket from "./Cricket";
 import Form from "./Form";
+import Esports from "./Esports";
 
 const Selection = (props) => {
   const [sport, setSport] = React.useState("");
@@ -40,7 +40,7 @@ const Selection = (props) => {
         position: "absolute",
         left: "50%",
         transform: "translateX(-50%)",
-        border: "solid #000 2px",
+        // border: "solid #000 2px",
         padding: "3rem",
       }}
     >
@@ -88,6 +88,7 @@ const Selection = (props) => {
           ))}
         </Select>
       </FormControl>
+      {sport === "esports" ? <Esports /> : ""}
       {sport === "lawn tennis" ? <LawnTennis /> : ""}
       {sport === "cricket" ? <Cricket /> : ""}
       {sport === "hockey" ? <Hockey /> : ""}

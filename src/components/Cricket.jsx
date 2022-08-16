@@ -5,6 +5,14 @@ const Cricket = () => {
   const Heading = styled(Typography)({
     margin: "1rem 0",
   });
+  const [teamScore, setTeamScore] = React.useState(0);
+  const [teamOvers, setTeamOvers] = React.useState(0);
+  const [teamWickets, setTeamWickets] = React.useState(0);
+  const updateOnSubmit = (a, b, c) => {
+    setTeamScore((prev) => prev + Number(a));
+    setTeamOvers((prev) => prev + Number(b));
+    setTeamWickets((prev) => prev + Number(c));
+  };
   const defaultValues = {
     score: "",
     overs: "",
@@ -22,18 +30,30 @@ const Cricket = () => {
     });
   };
   const handleSubmit = (event) => {
-    console.log(cricketValues);
     event.preventDefault();
+    updateOnSubmit(
+      cricketValues.score,
+      cricketValues.overs,
+      cricketValues.wickets
+    );
     cricketValues.score = "";
     cricketValues.overs = "";
     cricketValues.wickets = "";
-    console.log(cricketValues);
   };
   return (
     <>
       <form onSubmit={handleSubmit}>
         <Box>
           <Heading>Score</Heading>
+          <Heading
+            variant="h5"
+            sx={{
+              width: "8rem",
+              margin: "0 auto",
+            }}
+          >
+            {teamScore}
+          </Heading>
           <TextField
             id="outlined-number"
             label="Number"
@@ -45,8 +65,16 @@ const Cricket = () => {
             value={cricketValues.score}
             onChange={handleInputChange}
           />
-          <Typography>{cricketValues.score}</Typography>
           <Heading>Overs</Heading>
+          <Heading
+            variant="h5"
+            sx={{
+              width: "8rem",
+              margin: "0 auto",
+            }}
+          >
+            {teamOvers}
+          </Heading>
 
           <TextField
             id="outlined-number"
@@ -60,6 +88,15 @@ const Cricket = () => {
             onChange={handleInputChange}
           />
           <Heading>wickets</Heading>
+          <Heading
+            variant="h5"
+            sx={{
+              width: "8rem",
+              margin: "0 auto",
+            }}
+          >
+            {teamWickets}
+          </Heading>
 
           <TextField
             id="outlined-number"
